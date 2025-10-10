@@ -32,23 +32,26 @@ GiveKillstreak(streakName)
 UpgradeWeapon()
 {
     weapon = self GetCurrentWeapon();
+    weapon_item = item_inventory::function_230ceec4( weapon );
+    if ( weapon_item.itementry.rarity != #"legendary" && weapon_item.itementry.rarity != #"ultra" )
+    {
+        self thread namespace_1cc7b406::give_item("aether_tool_item_sr");
+        self playsound( "zmb_powerup_aethertool_pickup" );
+        self PrintToLevel("^2Weapon Upgraded!");
+    }
+    else{
+        self PrintToLevel("^1Weapon Upgraded To Max!");
+    }
+}
+
+PAPWeapon()
+{
+    weapon = self GetCurrentWeapon();
     wait .1;
-    if ( !isdefined( self.var_2843d3cc ) )
-    {
-        self.var_2843d3cc = [];
-    }
-    else if ( !isarray( self.var_2843d3cc ) )
-    {
-        self.var_2843d3cc = array( self.var_2843d3cc );
-    }
-    
-    if ( !isdefined( self.var_2843d3cc[ weapon ] ) )
-    {
-        self.var_2843d3cc[ weapon ] = 0;
-    }
+    paplvl = get_pap_level(weapon);
 
     chalice_level = "";
-    switch (self.var_2843d3cc[ weapon ])
+    switch (paplvl)
     {
         case 0:
             chalice_level = "bronze_chalice_item_sr";
@@ -63,26 +66,24 @@ UpgradeWeapon()
 
     if(chalice_level != "")
     {
-        if(chalice_level == "bronze_chalice_item_sr" || chalice_level == "silver_chalice_item_sr" || chalice_level == "gold_chalice_item_sr")
+        if(chalice_level != "platinum_chalice_item_sr")
         {
-            self thread namespace_1cc7b406::give_item( chalice_level );
+            //self thread animation::play( "ai_t9_zm_zombie_base_attack_02" );
+            self playrumbleonentity( "reload_large" );
         }
         self playsound( "zmb_powerup_chalice_gold_pickup" );
         wait .1;
         weapon = self GetCurrentWeapon();
-        switch(chalice_level)
-        {
-            case "bronze_chalice_item_sr": self.var_2843d3cc[ weapon ] = 1; self PrintToLevel("^2Your weapon has been upgraded to PAP level 1!"); break;
-            case "silver_chalice_item_sr": self.var_2843d3cc[ weapon ] = 2; self PrintToLevel("^2Your weapon has been upgraded to PAP level 2!"); break;
-            case "gold_chalice_item_sr": self.var_2843d3cc[ weapon ] = 3; self PrintToLevel("^2Your weapon has been upgraded to PAP level 3!"); break;
-        }
+        paplvl += 1;
+        self PrintToLevel("^2PAP Level At Max!");
     }
     else 
     {
-        if(self.var_2843d3cc[ weapon ] >= 3) self PrintToLevel("^1Your weapon is already at max PAP level!");
+        if(paplvl >= 3) self PrintToLevel("^1Your weapon is already at max PAP level!");
         else self PrintToLevel("^1Unable to PAP weapon!");
     }
 }
+
 
 acquireaat(id) {// works fine
     weapon = self getCurrentWeapon();

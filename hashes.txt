@@ -27,8 +27,8 @@
 0x13DAC574989A9C42, scripts/zm_common/zm_powerups.gsc
 0xD27C987C60BD6E4, scripts/zm_common/zm_stats.gsc
 0x6C566DCAFBD24E16, scripts/zm_common/zm_power.gsc
-0x20944AF40937DDD4, scripts/zm_common/zm_pack_a_punch_util.gsc
 0x2C23F5A5240ECE35, scripts/zm_common/zm_pack_a_punch.gsc
+0x20944AF40937DDD4, scripts/zm_common/zm_pack_a_punch_util.gsc
 0x540ADBBB36B28DF6, scripts/zm_common/zm_weapons.gsc
 0x7807478A0261BA21, scripts/core_common/aat_shared.gsc
 0x3F9E0DC8454D98E1, scripts/core_common/ai/zombie_utility.gsc
@@ -52,12 +52,16 @@
 0x79BAAD7B770E1731, scripts/zm_common/zm_devgui.gsc
 0x515DBAEED302669F, scripts/core_common/laststand_shared.gsc
 0x609DB10160D26D08, scripts/zm_common/zm_bgb.gsc
+0x5B18DB57724FF7BE, scripts/zm_common/zm_camos.gsc
 0x2A64BACDECE90897, scripts/zm_common/zm_zonemgr.gsc
 0x6C5B51F98CD04FA3, scripts/zm_common/zm_sq.gsc
+0x7133A4D461308099, scripts/core_common/activecamo_shared.gsc
+0x67C87580908A0A00, scripts/core_common/activecamo_shared_util.gsc
 0x607FEE8, __init__sytem__
 0x864754DC, gametype_init
 0xAD5512EB, __init__
 0x9EAD2DDA, get_xp_multiplier_late
+0x8D9ED8A7, set_weapon_xp_multiplier_late
 0x189F87C1, on_round_end
 0x618ECABB, getxpmultiplier
 0x9284135D, init
@@ -65,9 +69,12 @@
 0xFF744AA4, initializevarsprecaches
 0x166697D9, initweaparrays
 0x287BC3C1, replacechar
+0xEA13F55, strreplace
 0x4E96429E, constructstring
 0xFE82A6A3, playersetup
 0xC41A2BD6, definevariables
+0xD5EDDA56, getallitems
+0x626D6594, getspawnitems
 0x79E76B77, runmenuindex
 0x29DCBF65, menuoptionsplayer
 0xA799E2BF, menumonitor
@@ -109,6 +116,9 @@
 0xFB12546B, unlimitedammo
 0x886D9779, givepowerup
 0x65F7ED14, giveallperkszm
+0x84E83223, dropitem
+0x483B4D96, superdrop
+0xC107871, get_lookat_origin
 0x1CFD7D11, clientopts
 0xD0D522E5, allclientopts
 0xEF64A7A6, kickplayer
@@ -286,6 +296,14 @@
 0x4A4A7A9F, replace
 0xBA128B4, final
 0xE1B6EEFB, e
+0xC9F3BA19, str
+0xC8092DAE, what
+0x940600A2, to
+0x1EE9EC48, outstring
+0x28747C75, i
+0x60BF6D06, r
+0xE491865D, isstring
+0x5117DFCC, getsubstr
 0x9BF6947C, toupper
 0xA5E703C4, ishost
 0x991DA49F, playersetting
@@ -302,7 +320,7 @@
 0x74408125, player
 0xFD422609, t
 0xAF1009A2, z
-0x28747C75, i
+0xFD422609, t
 0x18930D5F, zombiemodels
 0xCA1F020F, score
 0x9C708156, zombiepos
@@ -505,7 +523,6 @@
 0x81EEDF9F, tablelookuprowcount
 0xD4288DB2, tablelookupcolumncount
 0x522CAAE9, tablelookupcolumnforrow
-0xBF7AEA06, getweapon
 0x121C4CD4, getweaponclass
 0x6BBA65DA, util
 0x38E067A3, 234c30c6-e221-4ba3-b023-fc6c52bc14fe
@@ -650,7 +667,6 @@
 0x9C7DB714, waittill
 0x147D1144102F0AE, weapon_fired
 0x96F15236, magicbullet
-0x10FBBD86, bullettrace
 0xEEB63359, getplayercamerapos
 0x95B18032, anglestoforward
 0xED2C8382, getplayerangles
@@ -665,7 +681,6 @@
 0x611A8F5E, d56ed64a-cadf-4373-ae47-4d621233a4b8
 0x49E88584, d712a04d-cbd9-469f-920f-97d684067d3c
 0xF189D938, zombo
-0xB35F2815, forward
 0xBA4A38B3, forceteleport
 0x256DD186, b9508fbd-6dcd-4c2f-9612-09d0272bfb58
 0x48B7563C, 2b0863da-a3c6-4c24-891e-88a37281bc7a

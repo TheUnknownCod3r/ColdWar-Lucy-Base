@@ -1,6 +1,6 @@
-#include script_4ccfb58a9443a60b;
-#include scripts\core_common\activecamo_shared;
-#include scripts\core_common\activecamo_shared_util;
+#include script_4ccfb58a9443a60b.gsc;
+#include scripts\core_common\activecamo_shared.gsc;
+#include scripts\core_common\activecamo_shared_util.gsc;
 #include scripts\core_common\struct.gsc;
 #include scripts\core_common\callbacks_shared.gsc;
 #include scripts\core_common\clientfield_shared.gsc;
@@ -26,8 +26,8 @@
 #include scripts\zm_common\zm_powerups.gsc;
 #include scripts\zm_common\zm_stats.gsc;
 #include scripts\zm_common\zm_power.gsc;
-#include scripts\zm_common\zm_pack_a_punch_util.gsc;
 #include scripts\zm_common\zm_pack_a_punch.gsc;
+#include scripts\zm_common\zm_pack_a_punch_util.gsc;
 #include scripts\zm_common\zm_weapons.gsc;
 #include scripts\core_common\aat_shared.gsc;
 #include scripts\core_common\ai\zombie_utility.gsc;
@@ -51,8 +51,11 @@
 #include scripts\zm_common\zm_devgui.gsc;
 #include scripts\core_common\laststand_shared.gsc;
 #include scripts\zm_common\zm_bgb.gsc;
+#include scripts\zm_common\zm_camos;
 #include scripts\zm_common\zm_zonemgr.gsc;
 #include scripts\zm_common\zm_sq.gsc;
+#include scripts\core_common\activecamo_shared.gsc;
+#include scripts\core_common\activecamo_shared_util.gsc;
 
 #namespace synergycw;
 
@@ -66,6 +69,8 @@ autoexec __init__sytem__()
     level.rankcap = undefined;
     //XP Multiplier
     thread get_xp_multiplier_late();
+    //Weapon XP Multiplier
+    thread set_weapon_xp_multiplier_late();
     // disable ee
 }
 
@@ -83,7 +88,6 @@ get_xp_multiplier_late() {
     level.var_3426461d = &GetXPMultiplier;
     level.var_2f528eb0 = &GetXPMultiplier;//weapon XP Mult
 }
-
 on_round_end() {
     level endon(#"hash_3e765c26047c9f54", #"end_game");
     wait 10;
