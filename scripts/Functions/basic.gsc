@@ -100,6 +100,9 @@ UnlimitedAmmo()
                     self setweaponammoclip(weapon,weapon.clipsize);
                 }
             }
+
+            //Set the gaget ammo
+            self thread zm_powerup_hero_weapon_power::hero_weapon_power(self);
             wait .05;
         }
     }
@@ -108,7 +111,7 @@ UnlimitedAmmo()
 
 GivePowerup(Powerup)//works
 {
-    self zm_powerups::specific_powerup_drop(Powerup, self.origin, undefined, undefined, undefined, 1);
+    self zm_powerups::specific_powerup_drop(Powerup, get_lookat_origin(self), undefined, undefined, undefined, 1);
     self PrintToLevel("^5Spawned Powerup: "+powerup);
 }
 
@@ -128,4 +131,56 @@ GiveAllPerksZM()//works
         wait .1;
 	}
     self PrintToLevel("All Perks ^2Given");
+}
+
+DropItem(Item, Type, Total)
+{
+    
+    switch (Type) {
+        case "spawnlist":
+            arrSpawnItems = get_spawn_list_items(Item);
+            if(arrSpawnItems.size > 0) 
+            {
+                spawnItemsFinal = [];
+                if (arrSpawnItems.size > 20) 
+                { 
+                    for(e=0;e<10;e++) 
+                    {
+                        spawnItemsFinal[e] = arrSpawnItems[randomint(arrSpawnItems.size-1)];
+                    }
+                }
+                else{
+                    spawnItemsFinal = arrSpawnItems;
+                }
+                foreach(spawnItem in spawnItemsFinal)
+                {
+                    point = getscriptbundle( spawnItem.itementry );
+                    if(isdefined(point)) DropItem(spawnItem.itementry, isdefined(point.weapon) ? "weapon" :"item", IsSubStr(point.itementry, "scrap") ? randomint(5) : 1);
+                }
+            }
+            break;
+        default:
+            scpBundle = getscriptbundle( Item );
+            point = function_4ba8fde( Item );
+            weap = isdefined( scpBundle.weapon ) ? getweapon(Item) : undefined;
+            if (isdefined(point))
+            {
+                Item = StrReplace(Item, "_item_sr", "");
+                Item = StrReplace(Item, "_orange", "");
+                Item = StrReplace(Item, "_purple", "");
+                Item = StrReplace(Item, "_blue", "");
+                Item = StrReplace(Item, "_white", "");
+                for(i=0;i<Total;i++)
+                {
+                    angle = self getangles();
+                    origin = get_lookat_origin(self);
+                    self item_drop::drop_item( 0, (isdefined( scpBundle.weapon ) ? weap : undefined), 1, (isdefined( scpBundle.weapon ) ? weap.maxammo : 0), point.id, origin, angle, 3 );
+                    playsoundatposition( "zmb_powerup_eqp_spawn",  origin );
+                    self PrintToLevel("^5Item Dropped: ^2" + Item);
+                    wait .1;
+                }
+            }
+            else self PrintToLevel("Item Not Found: ^1"+ Item);
+        break;
+    }
 }

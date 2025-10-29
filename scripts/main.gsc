@@ -65,6 +65,25 @@ InitWeapArrays()
     level._tungstenAudio = StrTok("round_start_first,round_start,round_end,round_start_special,game_over,ee_song,flood_spawning",",");
     level._SpecialNames = StrTok("Nailgun,War Machine,Crossbow,Ballistic Knife,Claymores,Monkey Bombs",",");
     level._PowerupNames = StrTok("Ammo Drop,Insta Kill,Full Power,Max Ammo,Free Perk,Fire Sale,Double Points,Carpenter,Bonus Points (Team),Bonfire Sale,Nuke,Bonus Points (Player),Bonus Points (Team)",",");
+    level._InGameItems = StrTok("armor_item_lv1_t9_sr,armor_item_lv2_t9_sr,armor_item_lv3_t9_sr,aether_tool_item_sr,bronze_chalice_item_sr,silver_chalice_item_sr,gold_chalice_item_sr,scrap_item_sr,scrap_rare_item_sr,scrap_epic_item_sr,scrap_legendary_item_sr,black_chest_level_6,black_hole_bomb_item_t9_sr",",");
+    level._InGameItemNames = StrTok("Armor (Level 1),Armor (Level 2),Armor (Level 3),Aether Tool,Bronze Chalice (Pack 1),Silwer Chalice (Pack 2),Golden Chalice (Pack 3),Common Scrap,Rare Scrap,Epic Scrap,Legendary Scrap,Black Chest Level 6,LT53 Kazamir",",");
+    level._InGameItemTypes = StrTok("item,item,item,item,item,item,item,item,item,item,item,spawnlist,item",",");
+    level._SupportItems = StrTok("item_survival_scorestreak_bow,item_survival_scorestreak_hand_cannon,item_survival_scorestreak_deathmachine,item_survival_scorestreak_flamethrower,item_survival_scorestreak_napalm_strike,item_survival_scorestreak_ultimate_turret,item_survival_scorestreak_artillery_strike,item_survival_scorestreak_remote_missile,item_survival_scorestreak_arcxd,item_survival_scorestreak_chopper_gunner,self_revive_sr_item",",");
+    level._SupportItemNames = StrTok("Combat Bow,Hand Cannon,Death Machine,Flame Thrower,Napalm Strike,Sentry Turret,Artillery,Cruise Missle,ARC-XD,Chopper Gunner,Self Revive",",");
+    level._DieMaschineItems = StrTok("",",");
+    level._DieMaschineItemNames = StrTok("",",");  
+    level._FirebaseZItems = StrTok("",",");
+    level._FirebaseZItemNames = StrTok("",",");
+    level._MauerDerTotenItems = StrTok("item_zmquest_platinum_klaus_battery",",");
+    level._MauerDerTotenItemNames = StrTok("Klaus Battery",",");
+    level._ForsakenItems = StrTok("item_zmquest_tungsten_pap_quest_part_a,axe_gun_volatile_crystal_item_t9,axe_gun_energetic_shard_item_t9",",");
+    level._ForsakenItemNames = StrTok("Circuit Board,Chrysalax Volatile Shard,Chrysalax Energetic Shard",",");
+    level._TacticalEquipment = StrTok("eq_stimshot,eq_slow_grenade,eq_grapple,nightingale,cymbal_monkey,w_black_hole_bomb",",");
+    level._TacticalEquipmentNames = StrTok("Stimshot,Stunn Grenade,Grapple Gun,Decoy,Cymbal Monkey,LT53 Kazamir",",");
+    level._LethalEquipment = StrTok("frag_grenade,eq_sticky_grenade,eq_molotov,satchel_charge",",");
+    level._LethalEquipmentNames = StrTok("Frag,Semtex,Molotov,C4",",");
+    level._SupportEquipment = StrTok("sig_bow_flame,hero_annihilator,sig_lmg,hero_flamethrower,veh_t9_mil_us_air_napalm_strike_pickup,wpn_t9_eqp_ultimate_turret_pickup,hash_3f33adcbed7f6c86,remote_missile_zm,veh_t9_zm_arc_xd,chopper_gunner,self_revive_item_t9",",");
+    level._SupportEquipmentNames = StrTok("Combat Bow,Hand Cannon,Death Machine,Flamethrower,Napalm Strike,Sentry Turret,Artillery Strinke,Cruise Missile,ARC-XD,Chopper Gunner,Self Revive",",");
 }
 replaceChar(string, substring, replace)
 {

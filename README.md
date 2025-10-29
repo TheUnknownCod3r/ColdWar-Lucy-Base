@@ -5,8 +5,7 @@
 [![Stars][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-**PLEASE NOTE RANK AND STATS DO NOT SAVE UNLESS YOU USE THE XP MODIFIER, AND KILLAURA AT HIGH ROUNDS. COLD WAR HAS AN XP AND LEVEL CAP.**<br>
-<h1>You may Fork this Project, and you may Use The Menu base in your own Projects, but from now on I am **NOT** Allowing Rehosting of the menu outside of this Repo, or my UnknownCheats thread. Any external links *MUST* Link to either this repository, or the UnknownCheats thread. Any Pre-compiled versions being shared by users (MrJasonDex/ModdingX or whatever he wants to call himself Specifically), have 72 hours to start removing the pre-compiled GSC.</h1>
+**PLEASE NOTE RANK AND STATS DO NOT SAVE UNLESS YOU USE THE XP MODIFIER, AND KILLAURA AT HIGH ROUNDS. COLD WAR HAS AN XP AND LEVEL CAP.<br>
 
 <!-- PROJECT LOGO -->
 <br />
@@ -129,9 +128,6 @@ These are mods that are currently utilising this code base, either on Cold War, 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Known menu skids
-
-* [MrJasonDex / ModdingX](https://www.github.com/MrJasonDex/) or whatever he calls himself - Claiming credit for the menu even though his only contribution was whining like a bitch in my dm, lmao. Grow up, kid. 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
