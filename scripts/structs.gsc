@@ -163,5 +163,5 @@ newMenu(menu)
     
     self.menu["currentMenu"] = menu;
     self runMenuIndex(menu);
-    self drawText();
+    self drawTextNew();
 }

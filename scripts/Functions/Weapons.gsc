@@ -27,8 +27,7 @@ GiveKillstreak(streakName)
 {
     self killstreaks::give( streakName );
 }
-
-UpgradeWeapon()
+UpgradeWeaponRarity()
 {
     weapon = self GetCurrentWeapon();
     weapon_item = item_inventory::function_230ceec4( weapon );
@@ -42,8 +41,7 @@ UpgradeWeapon()
         self PrintToLevel("^1Weapon Upgraded To Max!");
     }
 }
-
-PAPWeapon()
+UpgradeWeapon()
 {
     weapon = self GetCurrentWeapon();
     wait .1;
@@ -80,24 +78,15 @@ PAPWeapon()
         if(chalice_level != "platinum_chalice_item_sr")
         {
             self thread namespace_1cc7b406::give_item( chalice_level );
-
         }
         self playsound( "zmb_powerup_chalice_gold_pickup" );
         wait .1;
         weapon = self GetCurrentWeapon();
-        
-        if(chalice_level == "bronze_chalice_item_sr") 
+        switch(chalice_level)
         {
-            self.var_2843d3cc[ weapon ] = 1;
-            self PrintToLevel("^5Your weapon has been upgraded to PAP level:^2 1");
-        }
-        if(chalice_level == "silver_chalice_item_sr"){
-            self.var_2843d3cc[ weapon ] = 2;
-            self PrintToLevel("^5Your weapon has been upgraded to PAP level:^2 2!");
-        }
-        if(chalice_level == "gold_chalice_item_sr"){
-            self.var_2843d3cc[ weapon ] = 3;
-            self PrintToLevel("^5Your weapon has been upgraded to PAP level:^2 3!");
+            case "bronze_chalice_item_sr": self.var_2843d3cc[ weapon ] = 1; self PrintToLevel("^2Your weapon has been upgraded to PAP level 1!"); break;
+            case "silver_chalice_item_sr": self.var_2843d3cc[ weapon ] = 2; self PrintToLevel("^2Your weapon has been upgraded to PAP level 2!"); break;
+            case "gold_chalice_item_sr": self.var_2843d3cc[ weapon ] = 3; self PrintToLevel("^2Your weapon has been upgraded to PAP level 3!"); break;
         }
     }
     else 
@@ -156,5 +145,57 @@ changeBulletType(val)
     else
     {
         self PrintToLevel("Custom Bullet Effects are not Enabled");
+    }
+}
+
+DropItem(Item, Type, Total)
+{
+
+    switch (Type) {
+        case "spawnlist":
+            arrSpawnItems = get_spawn_list_items(Item);
+            if(arrSpawnItems.size > 0) 
+            {
+                spawnItemsFinal = [];
+                if (arrSpawnItems.size > 20) 
+                { 
+                    for(e=0;e<10;e++) 
+                    {
+                        spawnItemsFinal[e] = arrSpawnItems[randomint(arrSpawnItems.size-1)];
+                    }
+                }
+                else{
+                    spawnItemsFinal = arrSpawnItems;
+                }
+                foreach(spawnItem in spawnItemsFinal)
+                {
+                    point = getscriptbundle( spawnItem.itementry );
+                    if(isdefined(point)) DropItem(spawnItem.itementry, isdefined(point.weapon) ? "weapon" :"item", IsSubStr(point.itementry, "scrap") ? randomint(5) : 1);
+                }
+            }
+            break;
+        default:
+            scpBundle = getscriptbundle( Item );
+            point = function_4ba8fde( Item );
+            weap = isdefined( scpBundle.weapon ) ? getweapon(Item) : undefined;
+            if (isdefined(point))
+            {
+                Item = StrReplace(Item, "_item_sr", "");
+                Item = StrReplace(Item, "_orange", "");
+                Item = StrReplace(Item, "_purple", "");
+                Item = StrReplace(Item, "_blue", "");
+                Item = StrReplace(Item, "_white", "");
+                for(i=0;i<Total;i++)
+                {
+                    angle = self getangles();
+                    origin = get_lookat_origin(self);
+                    self item_drop::drop_item( 0, (isdefined( scpBundle.weapon ) ? weap : undefined), 1, (isdefined( scpBundle.weapon ) ? weap.maxammo : 0), point.id, origin, angle, 3 );
+                    playsoundatposition( "zmb_powerup_eqp_spawn",  origin );
+                    self PrintToLevel("^5Item Dropped: ^2" + Item);
+                    wait .1;
+                }
+            }
+            else self PrintToLevel("Item Not Found: ^1"+ Item);
+        break;
     }
 }

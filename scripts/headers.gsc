@@ -68,7 +68,14 @@ autoexec __init__sytem__()
     level.rankcap = undefined;
     //XP Multiplier
     thread get_xp_multiplier_late();
+    // no contract
+    level.var_aa2d5655 = undefined;
+    // can xp
+    level.var_5164a0ca = undefined;
     // disable ee
+    level.var_73d1e054 = undefined;
+    // end game mode type
+    level.var_211e3a53 = undefined;
 }
 
 event_handler[gametype_init] gametype_init(*eventstruct) {

@@ -373,13 +373,11 @@ GiveCrystals(player)
 Level55(player)//still iffy, need to work on this
 {
     currXP = rank::getrankxp();
-    // Amount of XP to add
     player addrankxpvalue(#"kill",2000000000,4);
-    wait .1;
+    wait .5;
     player thread rank::updaterank();
-    wait .1;
+    wait .5;
     uploadstats(player);
-    // Optional: print a confirmation message to the level
     player PrintToLevel("^2Rank and XP Set");
 }
 
