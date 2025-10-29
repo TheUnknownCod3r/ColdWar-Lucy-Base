@@ -454,11 +454,13 @@ runMenuIndex(menu)
             self addMenu(menu, "Die Maschine Items");
                 for(z=0;z<level._DieMaschineItems.size;z++)
                     self addOpt(level._DieMaschineItemNames[z], &DropItem, level._DieMaschineItems[z], "item", 1, self);
+                    if(level._DieMaschineItems.size == 0)self addOpt("No Items Yet",&TestOption);
         break;
         case "Firebase Z Items":
             self addMenu(menu, "Firebase Z Items");
                 for(z=0;z<level._FirebaseZItems.size;z++)
                     self addOpt(level._FirebaseZItemNames[z], &DropItem, level._FirebaseZItems[z], "item", 1, self);
+                    if(level._FirebaseZItems.size == 0)self addOpt("No Items Yet",&TestOption);
         break;
         case "Mauer der Toten Items":
             self addMenu(menu, "Mauer der Toten Items");
