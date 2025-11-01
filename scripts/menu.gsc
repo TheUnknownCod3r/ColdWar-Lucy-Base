@@ -58,7 +58,7 @@ runMenuIndex(menu)
         case "Personal Menu":
             self addMenu(menu, "Personal Menu");
                 self addOptBool(self.godmode, "God Mode", &Godmode);
-                self addOptBool(self.DrawWithHint, "Switch Menu draw Method", &ToggleDrawMethod);
+                self addOptBool(self.menuUseHint, "Switch Menu draw Method", &ToggleDrawMethod);
                 self addOptBool(self.Noclip, "No Clip", &ToggleNoClip,self);
                 self addOptBool(self.UnlimitedAmmo, "Unlimited Ammo", &UnlimitedAmmo);
                 self addOpt("Score Menu", &newMenu, "Score Menu");
