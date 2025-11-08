@@ -135,7 +135,7 @@ These are mods that are currently utilising this code base, either on Cold War, 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/TheUnknownCod3r/BColdWar-Lucy-Base.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/TheUnknownCod3r/ColdWar-Lucy-Base.svg?style=for-the-badge
 [contributors-url]: https://github.com/TheUnknownCod3r/ColdWar-Lucy-Base/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/TheUnknownCod3r/ColdWar-Lucy-Base.svg?style=for-the-badge
 [forks-url]: https://github.com/TheUnknownCod3r/ColdWar-Lucy-Base/network/members
