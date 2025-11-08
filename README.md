@@ -114,7 +114,10 @@ This wouldn't be possible without the following people
 
 * [TheUnknownCod3r](https://www.github.com/TheUnknownCod3r/)
 	Original Base release
-	
+* [C0mpile](https://github.com/c0mpile)
+  	Provided several functions
+* [Omnidg](https://github.com/omnidg)
+  	Provided the Item spawner Scripts, Helped with several other scripts inc PAP and weapons.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -123,7 +126,7 @@ This wouldn't be possible without the following people
 
 These are mods that are currently utilising this code base, either on Cold War, or Black Ops 4.
 
-* [Phantom T8](https://github.com/Lurkzy/phantom-t8)
+* [Phantom T8](https://github.com/Lurkzy/phantom-t8) (Discontinued)
       Phantom T8, A BO4 Multiplayer Mod Menu
 
 <p align="right">(<a href="#top">back to top</a>)</p>
