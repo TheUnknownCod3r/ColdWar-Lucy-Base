@@ -842,6 +842,10 @@ MonitorMenuRefresh()
 
     if(self isInMenu())
     {
+        #ifdef _SUPPORTS_HUDS //depends on the T9CInternal.dll being registered, if false, will run below.
+        self InitialiseHudLayout();
+        #endif
+        #ifndef _SUPPORTS_HUDS
         if(self.menuUseHint) self drawTextHint();
         else
         {
@@ -854,9 +858,14 @@ MonitorMenuRefresh()
                 wait 1;
             }
         }
+        #endif
     }
 }
 
+InitialiseHudLayout()
+{
+    //TODO: Push Hud stuff when Hud DLL is finished.
+}
 closeMenu1()
 {
     self notify("menuClosed");

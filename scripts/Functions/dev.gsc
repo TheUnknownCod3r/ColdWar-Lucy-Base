@@ -1,3 +1,5 @@
+#include scripts\zm_common\gametypes\dev.gsc;
+
 /*
 ###########################################
 Developer Modifications

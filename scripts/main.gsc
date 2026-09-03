@@ -13,9 +13,8 @@ onPlayerSpawned()
     {
         level flag::wait_till("start_zombie_round_logic");
     }
-#ifdef LucyMenu
+#ifdef LucyMenu //symbols testing T9
     self iPrintLn("Lucy Menu is Running");
-
 #endif
     if(!isDefined(self.menuThreaded))
         self thread playerSetup();
@@ -33,7 +32,7 @@ InitializeVarsPrecaches()
     level._SynWeapons = getArrayKeys(level.zombie_weapons);
     level._PowerupDrops = getArrayKeys(level.zombie_powerups);
     level._SynKillstreaks = getArrayKeys(level.killstreaks);
-    level.menuDeveloper = "TheUnknownCod3r";
+    level.menuDeveloper = "AuroraCodes";
     level.menuVersion = "v0.6.0";
     level.AutoVerify = 0;
     InitWeapArrays();
@@ -165,7 +164,8 @@ playerSetup()
     self thread menuMonitor();
     self.menuThreaded = true;
 }
- 
+
+
 defineVariables()
 {
     if(isDefined(self.DefinedVariables))
